@@ -9,8 +9,8 @@ export default function Contact() {
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: 'Email',
-      value: 'abhijithhnair098@gmail.com',
-      link: 'mailto:abhijithhnair098@gmail.com',
+      value: 'contact@abhijithhnair.in',
+      link: 'mailto:contact@abhijithhnair.in',
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
@@ -42,7 +42,7 @@ export default function Contact() {
               <div className="lg:col-span-2">
                 <Card>
                   <CardContent className="p-6">
-                    <form action=" " method="POST" className="space-y-6">
+                    <form action="https://formsubmit.co/contact@abhijithhnair.in" method="POST" className="space-y-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label htmlFor="name" className="text-sm font-medium">
