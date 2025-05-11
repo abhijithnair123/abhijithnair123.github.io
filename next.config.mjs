@@ -1,19 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Static export configuration
+  output: 'export', // Static export configuration
   eslint: {
-    ignoreDuringBuilds: true,  // Avoid eslint errors during build
+    ignoreDuringBuilds: true, // Avoid eslint errors during build
   },
   typescript: {
-    ignoreBuildErrors: true,  // Ignore TypeScript errors during build
+    ignoreBuildErrors: true, // Ignore TypeScript errors during build
   },
   images: {
-    unoptimized: true,  // Disable image optimization for static export
+    unoptimized: true, // Disable image optimization for static export
   },
-  trailingSlash: true,  // Adds trailing slash to routes for better SEO and compatibility
-  experimental: {
-    appDir: true,  // Ensure App Router is enabled for Next.js 13+
-  },
-}
+  trailingSlash: true, // Adds trailing slash to routes for better SEO and compatibility
+};
 
-export default nextConfig
+export default nextConfig;
