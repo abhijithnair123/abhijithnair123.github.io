@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://nihalmaskey.com',
+    url: 'https://abhijithhnair.in',
     title: 'Abhijith H Nair | Senior Software Engineer',
     description:
       'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.',
@@ -34,13 +34,12 @@ export const metadata: Metadata = {
     title: 'Abhijith H Nair | Senior Software Engineer',
     description:
       'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.',
-    creator: '@maskeynihal',
+    creator: '@abhijith',
   },
   robots: {
     index: true,
     follow: true,
   },
-  generator: 'v0.dev',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
