@@ -43,6 +43,8 @@ export default function Contact() {
                 <Card>
                   <CardContent className="p-6">
                     <form action="https://formsubmit.co/contact@abhijithhnair.in" method="POST" className="space-y-6">
+                      <input type="hidden" name="_next" value="" />
+                      <input type="hidden" name="_captcha" value="false" />
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label htmlFor="name" className="text-sm font-medium">
