@@ -1,16 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'export',  // Static export configuration
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true,  // Avoid eslint errors during build
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true,  // Ignore TypeScript errors during build
   },
   images: {
-    unoptimized: true,
+    unoptimized: true,  // Disable image optimization for static export
   },
-  trailingSlash: true,
+  trailingSlash: true,  // Adds trailing slash to routes for better SEO and compatibility
+  experimental: {
+    appDir: true,  // Ensure App Router is enabled for Next.js 13+
+  },
 }
 
 export default nextConfig
