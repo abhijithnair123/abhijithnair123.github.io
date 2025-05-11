@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { Analytics } from '@/components/analytics';
 import ClientLayout from './client';
 import { Suspense } from 'react';
-
+import { Toaster } from '@/components/ui/toaster';
 export const metadata: Metadata = {
   title: 'Abhijith H Nair | Senior Software Engineer',
+  icons: './test.png',
   description:
     'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.',
   keywords: [
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <>
       <Suspense>
         <ClientLayout>{children}</ClientLayout>
+        <Toaster />
       </Suspense>
       <Analytics />
     </>

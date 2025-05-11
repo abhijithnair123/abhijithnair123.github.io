@@ -5,11 +5,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
+  const { toast } = useToast();
 
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -62,7 +64,11 @@ export default function Contact() {
       .then((response) => response.json())
       .then((response) => {
         if (response.code === 200) {
-          alert('We received your submission, thank you!');
+          toast({
+            title: 'Email Received',
+            description: 'You will receive an email shortly',
+          });
+          // alert('We received your submission, thank you!');
         } else if (response.code === 422) {
           // Field validation failed
           setError(response.message);
