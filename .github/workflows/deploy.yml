@@ -19,7 +19,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm ci  # Install dependencies from package-lock.json
+        run: npm i -f  # Install dependencies from package-lock.json
 
       - name: Build Next.js site
         run: npm run build  # Generate static files
