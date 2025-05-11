@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Abhijith H Nair | Senior Software Engineer',
   icons: './test.png',
   description:
-    'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.',
+    'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, NextJS , Wordpress.',
   keywords: [
     'Abhijith H Nair',
     'Software Engineer',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'TypeScript',
     'React',
     'Node.js',
-    'AWS',
+    'Next JS',
   ],
   authors: [{ name: 'Abhijith H Nair' }],
   creator: 'Abhijith H Nair',
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     url: 'https://abhijithhnair.in',
     title: 'Abhijith H Nair | Senior Software Engineer',
     description:
-      'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.',
+      'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, and Next JS.',
     siteName: 'Abhijith H Nair Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Abhijith H Nair | Senior Software Engineer',
     description:
-      'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.',
+      'Portfolio of Abhijith H Nair, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, and Next JS.',
     creator: '@abhijith',
   },
   robots: {
