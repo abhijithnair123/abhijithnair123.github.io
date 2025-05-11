@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Trigger deploy only when changes are pushed to the 'main' branch
+      - master  # Trigger deploy only when changes are pushed to 'main' branch
 
 jobs:
   deploy:
@@ -19,14 +19,17 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm i -f  # Install dependencies from package-lock.json
+        run: npm ci  # Install dependencies from package-lock.json
 
       - name: Build Next.js site
-        run: npm run build  # Generate static files in 'out/'
+        run: npm run build  # Generate static files
+
+      - name: Export Next.js site
+        run: npm run export  # Export static files to 'out/'
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # Push the contents of 'out' folder to the gh-pages branch
-          destination_branch: gh-pages  # Specify the branch to push the build files to
+          publish_dir: ./out  # Push the contents of 'out' folder to 'gh-pages' branch
+          destination_branch: gh-pages  # Specify the branch for GitHub Pages
