@@ -1,10 +1,18 @@
+'use client';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Contact() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
@@ -25,7 +33,49 @@ export default function Contact() {
       link: null,
     },
   ];
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
 
+    // Basic validation example
+    if (!name || !email || !message) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    setError('');
+    const formData = { name, email, message };
+
+    // Trigger the callback passed via props
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    fetch('https://formcarry.com/s/PuvEIavYZPJ', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, message }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.code === 200) {
+          alert('We received your submission, thank you!');
+        } else if (response.code === 422) {
+          // Field validation failed
+          setError(response.message);
+        } else {
+          // other error from formcarry
+          setError(response.message);
+        }
+      })
+      .catch((error) => {
+        // request related error.
+        setError(error.message ? error.message : error);
+      });
+  };
   return (
     <div className="w-full bg-muted/30">
       <section id="contact" className="py-20">
@@ -42,7 +92,7 @@ export default function Contact() {
               <div className="lg:col-span-2">
                 <Card>
                   <CardContent className="p-6">
-                    <form action="https://formsubmit.co/contact@abhijithhnair.in" method="POST" className="space-y-6">
+                    <form onSubmit={handleSubmit} method="POST" className="space-y-6">
                       <input type="hidden" name="_next" value="" />
                       <input type="hidden" name="_captcha" value="false" />
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -50,20 +100,42 @@ export default function Contact() {
                           <label htmlFor="name" className="text-sm font-medium">
                             Name
                           </label>
-                          <Input id="name" name="name" placeholder="Your name" required />
+                          <Input
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                          />
                         </div>
                         <div className="space-y-2">
                           <label htmlFor="email" className="text-sm font-medium">
                             Email
                           </label>
-                          <Input id="email" name="email" type="email" placeholder="Your email" required />
+                          <Input
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="Your email"
+                            required
+                          />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="subject" className="text-sm font-medium">
                           Subject
                         </label>
-                        <Input id="subject" name="subject" placeholder="Subject of your message" required />
+                        <Input
+                          value={subject}
+                          onChange={(e) => setSubject(e.target.value)}
+                          id="subject"
+                          name="subject"
+                          placeholder="Subject of your message"
+                          required
+                        />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="message" className="text-sm font-medium">
@@ -71,6 +143,8 @@ export default function Contact() {
                         </label>
                         <Textarea
                           id="message"
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
                           name="message"
                           placeholder="Your message"
                           className="min-h-[150px]"
