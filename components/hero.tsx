@@ -53,7 +53,7 @@ export default function Hero() {
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <Link href="mailto:abhijithhnair098@gmail.com">
+              <Link href="mailto:contact@abhijithhnair.in">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>

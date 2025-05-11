@@ -245,7 +245,7 @@ export default function Contact() {
                         </a>
                       </Button>
                       <Button variant="outline" size="icon" asChild>
-                        <a href="mailto:abhijithhnair098@gmail.com">
+                        <a href="mailto:contact@abhijithhnair.in">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
