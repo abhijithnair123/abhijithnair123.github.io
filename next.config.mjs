@@ -1,16 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Static export configuration
+  output: 'export',
+  basePath: '/abhijith-portfolio',
+  assetPrefix: '/abhijith-portfolio',
   eslint: {
-    ignoreDuringBuilds: true, // Avoid eslint errors during build
+    ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true, // Ignore TypeScript errors during build
+    ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true, // Disable image optimization for static export
+    unoptimized: true,
   },
-  trailingSlash: true, // Adds trailing slash to routes for better SEO and compatibility
-};
+  trailingSlash: true,
+  experimental: {
+    appDir: true,
+  },
+}
 
 export default nextConfig;
