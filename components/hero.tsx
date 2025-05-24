@@ -3,8 +3,15 @@
 import { Button } from '@/components/ui/button';
 import { ArrowUpCircle, Download, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { useTelegramTracking } from '@/hooks/useTelegramTracking';
 
 export default function Hero() {
+  const { trackDownload } = useTelegramTracking();
+
+  const handleResumeDownload = () => {
+    trackDownload('abhijith.pdf');
+  };
+
   return (
     <section id="home" className="py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh]">
       <div className="container px-4 md:px-6 mx-auto">
@@ -30,7 +37,7 @@ export default function Hero() {
               <Link href="#contact">Get In Touch</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="../abhijith.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="../abhijith.pdf" target="_blank" rel="noopener noreferrer" onClick={handleResumeDownload}>
                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>
