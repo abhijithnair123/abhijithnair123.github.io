@@ -1,40 +1,37 @@
-"use client"
+'use client';
 
-import type React from "react"
-import { Mona_Sans as FontSans } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
-import AnimatedBackground from "@/components/animated-background"
-import NoScriptStyles from "@/components/noscript-styles"
+import type React from 'react';
+import { Mona_Sans as FontSans } from 'next/font/google';
+import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
+import { cn } from '@/lib/utils';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import AnimatedBackground from '@/components/animated-background';
+import NoScriptStyles from '@/components/noscript-styles';
 
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
 
-export default function ClientLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <NoScriptStyles />
         <style jsx global>{`
           :root {
-            --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'Roboto Mono', Menlo, Monaco, 'Liberation Mono',
+              'DejaVu Sans Mono', 'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
           }
-          
+
           body {
             font-family: var(--font-mono);
           }
         `}</style>
       </head>
-      <body className={cn("min-h-screen bg-background font-mono antialiased", fontSans.variable)}>
+      <body className={cn('min-h-screen bg-background font-mono antialiased', fontSans.variable)}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col overflow-hidden">
             <noscript>
@@ -50,5 +47,5 @@ export default function ClientLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
