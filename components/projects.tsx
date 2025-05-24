@@ -1,7 +1,4 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
-import Link from 'next/link';
 
 export default function Projects() {
   const projects = [
@@ -72,7 +69,7 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <div className="project-links mt-4">
+                    {/* <div className="project-links mt-4">
                       <Button size="sm" variant="outline" asChild>
                         <Link href={project.codeLink} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-1 h-4 w-4" /> Code
@@ -85,7 +82,7 @@ export default function Projects() {
                           </Link>
                         </Button>
                       )}
-                    </div>
+                    </div> */}
                   </CardContent>
                 </Card>
               </div>
